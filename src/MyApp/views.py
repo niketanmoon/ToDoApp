@@ -4,7 +4,12 @@ from django.views.decorators.csrf import csrf_exempt
 from MyApp.models import ToDoList
 # Create your views here.
 def home(request):
-    return render(request,'home.html')
+    items = ToDoList.objects.all()
+    print(items)
+    context = {
+        'items':items,
+    }
+    return render(request,'home.html',context)
 
 @csrf_exempt
 def add_to_do(request):
