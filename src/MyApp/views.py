@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from MyApp.models import ToDoList
 # Create your views here.
 def home(request):
-    items = ToDoList.objects.all()
+    items = ToDoList.objects.all().order_by('-added_date')
     context = {
         'items':items,
     }
