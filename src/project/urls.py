@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from movieapp.views import create_movie_list
 from MyApp.views import home,add_to_do,delete_to_do
 
 urlpatterns = [
     path('', home, name='home'),
+    path('create/', create_movie_list, name='create'),
     path('add/', add_to_do, name='add'),
     path('delete/<int:item_id>', delete_to_do, name='delete'),
     path('admin/', admin.site.urls),
